@@ -1,15 +1,21 @@
 
-
-/* The Office - One */
 .question-ctn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
 
-.btn-submit, .btn-next {
-    font-size: 18px;
-    height: 3.25rem;
+.form-control, .accordion {
+    padding-bottom: 15px;
+    
+}
+
+.btn-submit {
+    margin-top: 2rem;
+}
+
+.accordion-item {
+    margin-top: 2rem;
 }
