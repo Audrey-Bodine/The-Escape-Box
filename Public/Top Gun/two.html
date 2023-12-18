@@ -56,11 +56,11 @@
       <div class="container question-ctn">
       <h4 class="question-title">Question 2</h4>
       <h5 class="py-4">Insert question text here?</h5>
-      <form class="row g-3" name="officeForm" onsubmit="validate(); return false">
+      <form class="row g-3" name="topGunForm" onsubmit="validate(); return false">
           <div class="d-grid gap-3 mx-auto">
-            <label for="officeTwo" class="form-label"></label>
+            <label for="topGunTwo" class="form-label"></label>
             <div class="input-group">
-              <input type="text" class="form-control" id="officeTwo" name="officeTwo" required>
+              <input type="text" class="form-control" id="topGunTwo" name="topGunTwo" required>
               
               <div class="valid-tooltip">
                   Congratulations! You've solved the puzzle.
@@ -149,21 +149,21 @@
 
   <script>
       // Variable declaration for validate()
-      var officeTwo = document.officeForm.officeTwo;
+      var topGunTwo = document.topGunForm.topGunTwo;
 
       // Validates that user input matches set value
       function validate(){
-          if(officeTwo.value == "this" || officeTwo.value == "This"){
-              officeTwo.classList.remove("is-invalid");
-              officeTwo.classList.add("is-valid");
+          if(topGunTwo.value == "this" || topGunTwo.value == "This"){
+              topGunTwo.classList.remove("is-invalid");
+              topGunTwo.classList.add("is-valid");
               document.getElementById("next-btn").hidden = false;
               document.getElementById("next-btn").onclick = function(){
                   location.href = "./three.html"
               };
           }
           else {
-              officeTwo.classList.remove("is-valid");
-              officeTwo.classList.add("is-invalid");
+              topGunTwo.classList.remove("is-valid");
+              topGunTwo.classList.add("is-invalid");
 
           }
       }
