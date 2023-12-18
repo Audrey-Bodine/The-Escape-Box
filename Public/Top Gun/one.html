@@ -51,7 +51,171 @@
           </nav>
     </section>
 
-    <!-- Bootstrap link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+<!-- Question form section -->
+<section id="answer-form">
+  <div class="container question-ctn">
+  <h4 class="question-title">Question 1</h4>
+  <h5 class="py-4">What time will you start your marathon?</h5>
+  <form class="row g-3" name="topGunForm" onsubmit="validate(); return false">
+      <div class="d-grid gap-3 mx-auto">
+        <label for="topGunAnswer" class="form-label"></label>
+        <div class="input-group">
+          <!-- <input type="text" class="form-control" id="topGunAnswer" name="topGunAnswer" required> -->
+          
+          <ul class="list-group">
+              <li class="list-group-item">
+                  <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunRadio1">
+                  <label class="form-check-label" for="topGunRadio1">10:00 AM</label>
+                </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunRadio2" required>
+                <label class="form-check-label" for="topGunRadio2">1:00 PM</label>
+              </li>
+              <li class="list-group-item">
+                  <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunAnswer">
+                  <label class="form-check-label" for="topGunAnswer">5:00 PM</label>
+              </li>
+              <li class="list-group-item">
+                  <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunRadio3" required>
+                  <label class="form-check-label" for="topGunRadio3">7:15 PM</label>
+                </li>
+
+            </ul>
+
+          <div class="valid-tooltip">
+              Congratulations! You've solved the puzzle.
+          </div>
+
+          <div class="invalid-tooltip">
+              Hmm. That's not quite right. Why don't you try again?
+          </div>   
+        </div>
+        
+    <!-- Submit and Next puzzle buttons -->
+    <button class="btn btn-primary btn-submit" type="submit">Submit Guess</button>
+      
+      
+      <!-- Hint accordian -->
+      <div class="accordion" id="accordionExample">         
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint" aria-expanded="false" aria-controls="collapseHint">
+            Hint
+          </button>
+        </h2>
+        <div id="collapseHint" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      </div>
+    
+
+    <!-- Skip button and modal --> 
+      <div class="modal fade" id="skipModalToggle" aria-hidden="true" aria-labelledby="skipModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="skipModalToggleLabel">Skip</h1>
+              <button type="button" class="btn-close btn-submit" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Do you want to view the answer and move on to the next question?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button class="btn btn-primary" data-bs-target="#answerModalToggle" data-bs-toggle="modal">See answer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="answerModalToggle" aria-hidden="true" aria-labelledby="answerModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="answerModalToggleLabel">Answer Key</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Insert answer here
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-target="#skipModalToggle" data-bs-toggle="modal">Back</button>
+              <a href="./two.html">
+                <button type="button" class="btn btn-primary">Next question</button>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Skip button -->
+      <button class="btn btn-primary btn-skip" data-bs-target="#skipModalToggle" data-bs-toggle="modal">Skip Question</button>
+
+      <!-- Next Puzzle button -->
+      <button class="btn btn-primary btn-next mt-2" type="submit" id="next-btn" onclick="location.href" href="./two.html" hidden>Next Puzzle</button>
+      </div>
+
+      
+
+    </form>
+  </div>
+</section>
+
+<!-- Bootstrap link -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script>
+// const radioButtons = document.querySelectorAll('input[name="radioButton"]');
+var topGunAnswer = document.topGunForm.topGunAnswer;
+var topGunRadio1 = document.topGunForm.topGunRadio1;
+var topGunRadio2 = document.topGunForm.topGunRadio2;
+var topGunRadio3 = document.topGunForm.topGunRadio3;
+
+
+// Validates that user input matches set value
+function validate(){
+  if(topGunAnswer.checked){
+      topGunAnswer.classList.remove("is-invalid");
+      topGunAnswer.classList.add("is-valid");
+
+      document.getElementById("next-btn").hidden = false;
+      document.getElementById("next-btn").onclick = function(){
+          location.href = "./two.html"
+      };
+
+      topGunRadio1.disabled = true;
+      topGunRadio2.disabled = true;
+      topGunRadio3.disabled = true;
+
+  }
+  else if(topGunRadio1.checked){
+      document.getElementById("topGunRadio1").disabled = true;
+      document.getElementById("topGunRadio1").checked = false;
+      topGunRadio1.classList.remove("is-valid");
+      topGunRadio1.classList.add("is-invalid");
+
+      
+      
+  }
+  else if(topGunRadio2.checked){
+      document.getElementById("topGunRadio2").disabled = true;
+      document.getElementById("topGunRadio2").checked = false;
+      topGunRadio2.classList.remove("is-valid");
+      topGunRadio2.classList.add("is-invalid");
+  }
+  else {
+      document.getElementById("topGunRadio3").disabled = true;
+      document.getElementById("topGunRadio3").checked = false;
+      topGunRadio3.classList.remove("is-valid");
+      topGunRadio3.classList.add("is-invalid");
+  }
+}
+
+
+</script>
 </body>
 </html>
