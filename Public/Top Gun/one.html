@@ -55,15 +55,15 @@
 
 <!-- Question form section -->
 <section id="answer-form">
+  <div class="background-img bg-tg-1">
+  <div class="body-bg">
   <div class="container question-ctn">
   <h4 class="question-title">Question 1</h4>
   <h5 class="py-4">What time will you start your marathon?</h5>
   <form class="row g-3" name="topGunForm" onsubmit="validate(); return false">
       <div class="d-grid gap-3 mx-auto">
-        <label for="topGunAnswer" class="form-label"></label>
-        <div class="input-group">
-          <!-- <input type="text" class="form-control" id="topGunAnswer" name="topGunAnswer" required> -->
-          
+        <label for="topGunAnswer" class="form-label tg-form-label"></label>
+        <div class="input-group tg-radio-input-group">
           <ul class="list-group">
               <li class="list-group-item">
                   <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunRadio1">
@@ -83,25 +83,19 @@
                 </li>
 
             </ul>
-
-          <div class="valid-tooltip">
-              Congratulations! You've solved the puzzle.
-          </div>
-
-          <div class="invalid-tooltip">
-              Hmm. That's not quite right. Why don't you try again?
-          </div>   
+        </div>
         </div>
         
+    <div class="d-grid gap-3 mx-auto">
     <!-- Submit and Next puzzle buttons -->
-    <button class="btn btn-primary btn-submit" type="submit">Submit Guess</button>
+    <button class="btn btn-primary btn-submit" id="submit-btn" type="submit" aria-hidden="false">Submit Guess</button>
       
       
       <!-- Hint accordian -->
       <div class="accordion" id="accordionExample">         
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint" aria-expanded="false" aria-controls="collapseHint">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint" aria-expanded="false" aria-controls="collapseHint" aria-hidden="false">
             Hint
           </button>
         </h2>
@@ -153,15 +147,16 @@
         </div>
       </div>
       <!-- Skip button -->
-      <button class="btn btn-primary btn-skip" data-bs-target="#skipModalToggle" data-bs-toggle="modal">Skip Question</button>
+      <button class="btn btn-primary btn-skip" id="skip-btn" data-bs-target="#skipModalToggle" data-bs-toggle="modal" aria-hidden="false">Skip Question</button>
 
       <!-- Next Puzzle button -->
       <button class="btn btn-primary btn-next mt-2" type="submit" id="next-btn" onclick="location.href" href="./two.html" hidden>Next Puzzle</button>
       </div>
 
-      
-
+    </div>
     </form>
+  </div>
+  </div>
   </div>
 </section>
 
@@ -186,6 +181,9 @@ function validate(){
       document.getElementById("next-btn").onclick = function(){
           location.href = "./two.html"
       };
+      document.getElementById("skip-btn").hidden = true;
+      document.getElementById("submit-btn").hidden = true;
+      document.getElementById("accordionExample").hidden = true;
 
       topGunRadio1.disabled = true;
       topGunRadio2.disabled = true;

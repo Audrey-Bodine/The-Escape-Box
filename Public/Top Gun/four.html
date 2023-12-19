@@ -53,6 +53,8 @@
 
     <!-- Question form section -->
     <section id="answer-form">
+      <div class="background-img bg-tg-4">
+      <div class="body-bg">
       <div class="container question-ctn">
       <h4 class="question-title">Question 4</h4>
       <h5 class="py-4">Insert question text here?</h5>
@@ -61,25 +63,17 @@
             <label for="topGunFour" class="form-label"></label>
             <div class="input-group">
               <input type="text" class="form-control" id="topGunFour" name="topGunFour" required>
-              
-              <div class="valid-tooltip">
-                  Congratulations! You've solved the puzzle.
-              </div>
-
-              <div class="invalid-tooltip">
-                  Hmm. That's not quite right. Why don't you try again?
-              </div>   
             </div>
             
         <!-- Submit and Next puzzle buttons -->
-        <button class="btn btn-primary btn-submit" type="submit">Submit Guess</button>
+        <button class="btn btn-primary btn-submit" id="submit-btn" type="submit" aria-hidden="false">Submit Guess</button>
           
           
           <!-- Hint accordian -->
           <div class="accordion" id="accordionExample">         
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint" aria-expanded="false" aria-controls="collapseHint">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint" aria-expanded="false" aria-controls="collapseHint" aria-hidden="false">
                 Hint
               </button>
             </h2>
@@ -131,16 +125,42 @@
             </div>
           </div>
           <!-- Skip button -->
-          <button class="btn btn-primary btn-skip" data-bs-target="#skipModalToggle" data-bs-toggle="modal">Skip Question</button>
+          <button class="btn btn-primary btn-skip" id="skip-btn" data-bs-target="#skipModalToggle" data-bs-toggle="modal" aria-hidden="false">Skip Question</button>
 
           <!-- Next Puzzle button -->
           <button class="btn btn-primary btn-next mt-2" type="submit" id="next-btn" onclick="location.href" href="./escaped.html" hidden>Start the movie!</button>
           </div>
-
-          
-
         </form>
+
       </div>
+      </div>
+      </div>
+  </section>
+
+  
+  <!-- Escaped modal section -->
+  <section id="escaped-modal">
+          <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <a href="./escaped.html">
+                    <button class="escape-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                    </svg></button>
+                  </a>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
   </section>
 
 
@@ -150,16 +170,22 @@
   <script>
       // Variable declaration for validate()
       var topGunFour = document.topGunForm.topGunFour;
+      let escapedModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
 
       // Validates that user input matches set value
       function validate(){
           if(topGunFour.value == "this" || topGunFour.value == "This"){
               topGunFour.classList.remove("is-invalid");
               topGunFour.classList.add("is-valid");
-              document.getElementById("next-btn").hidden = false;
               document.getElementById("next-btn").onclick = function(){
                   location.href = "./escaped.html"
               };
+              document.getElementById("skip-btn").hidden = true;
+              document.getElementById("accordionExample").hidden = true;
+
+              document.getElementById("exampleModal").hidden = false;
+              escapedModal.show();
+
           }
           else {
               topGunFour.classList.remove("is-valid");
@@ -167,6 +193,7 @@
 
           }
       }
+
   </script>
 </body>
 </html>
