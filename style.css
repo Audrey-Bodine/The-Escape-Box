@@ -1,3 +1,115 @@
+/* INDEX PAGE */
+.bg-image {
+    background-color: rgb(255, 255, 255);
+    overflow: scroll;
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+#body-home h3, #body-home h4, #box-list-home h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+#header-home {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    font-size: 30px;
+}
+
+.game-title {
+    font-style: italic;
+}
+
+@media (max-width: 1200px) {
+    .box-list-ctn {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        object-fit: cover;
+        padding: 20px;
+    }
+
+    .office-cover-ctn div{
+        position: absolute;
+        top: 55%;
+        left: 5%;
+        width: 100%;
+        font-size: 5rem;
+        text-transform: uppercase;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        text-shadow: 4px 12px 8px rgb(78, 78, 78);
+    }
+
+    .top-gun-cover-ctn div {
+        position: absolute;
+        top: 55%;
+        left: 15%;
+        width: 100%;
+        font-size: 5rem;
+        text-transform: uppercase;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        text-shadow: 4px 16px 8px rgb(31, 31, 31);
+    }
+
+    
+}
+
+@media (min-width: 1201px) {
+    .box-list-ctn {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        object-fit: cover;
+        width: 100vw;
+        padding-top: 2rem;
+    }
+
+    .top-gun-cover-ctn div {
+        position: absolute;
+        top: 62%;
+        left: 22%;
+        width: 100%;
+        font-size: 5rem;
+        text-transform: uppercase;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        text-shadow: 4px 16px 8px rgb(31, 31, 31);
+    }
+
+    .office-cover-ctn div {
+        position: absolute;
+        top: 62%;
+        left: 11%;
+        width: 100%;
+        font-size: 5rem;
+        text-transform: uppercase;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        text-shadow: 4px 12px 8px rgb(78, 78, 78);
+    }
+}
+
+.top-gun-cover-ctn, .office-cover-ctn {
+    position: relative;
+    width: 100%;
+}
+
+
+
+
+
 .background-img {
     background: rgba(75, 73, 73, 0.579);
     background-blend-mode: darken;
@@ -11,33 +123,67 @@
 .body-bg {
     backdrop-filter: blur(5px);
     height: 100vh;
+    overflow: scroll;
 }
-
 .question-ctn {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  text-align: center;
+  height: 90vh;
 }
 
-.form-control, .accordion {
-    padding-bottom: 15px;
-    padding: 15px;
+.question-title {
+    margin-top: 3rem;
 }
 
 .btn-submit, .btn-skip, .btn-next {
-    margin-top: 2rem;
     padding: 15px;
 }
 
-.accordion-item {
-    margin-top: 2rem;
-    padding: 8px;
+.btn-next, .btn-skip {
+    margin-bottom: 2rem;
 }
 
-h4 {
-    color: coral;
+.accordion-item {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 4px;
+}
+
+.accordion-button, .accordion-item {
+    background-color: rgb(212, 211, 196);
+    border: none;
+}
+
+.btn-submit, .see-answer-btn {
+    background-color: rgb(33, 117, 185);
+    border: none;
+}
+
+.btn-skip {
+    background-color: rgb(227, 124, 27);
+    border-radius: 10px;
+    border: none;
+}
+
+#skip-btn:hover {
+    background-color: rgb(239, 166, 97);
+}
+
+#submit-btn:hover, .see-answer-btn:hover {
+    background-color: rgb(66, 144, 209);
+}
+
+.modal-backdrop {
+    display: none;
+    z-index: 1040 !important;
+}
+
+.modal-content {
+    margin: 2px auto;
+    z-index: 1100 !important;
 }
 
 /* TOP GUN */
@@ -55,6 +201,7 @@ h4 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 2rem;;
 }
 
 .bg-tg-1 {
@@ -74,6 +221,29 @@ h4 {
 }
 
 
+#answer-form-tg .question-title {
+    font-family: 'Tomorrow', sans-serif;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    
+}
+
+#answer-form-tg h5, #answer-form-tg h2 {
+    font-family: 'Tomorrow', sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 2rem;
+}
+
+#answer-form-tg .btn {
+    font-family: 'Tomorrow', sans-serif;
+    color: rgb(231, 231, 231);
+    font-size: 18px;
+}
+
+
+
 /* THE OFFICE */
 .bg-office-1 {
     background-image: url('./Images/pa-landscape.png');
@@ -90,3 +260,26 @@ h4 {
 .bg-office-4 {
     background-image: url('./Images/index-cards.png');
 }
+
+#answer-form-office .question-title {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    
+}
+
+#answer-form-office h5, #answer-form-office h2 {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: white;
+    font-size: 2rem;
+}
+
+#answer-form-office .btn {
+    font-family: 'Courier Prime', monospace;
+    color: rgb(231, 231, 231);
+    font-size: 18px;
+}
+
+
