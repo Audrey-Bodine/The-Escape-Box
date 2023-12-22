@@ -1,12 +1,12 @@
+body {
+    background-color: rgb(242, 239, 232);
+}
 /* INDEX PAGE */
 .bg-image {
-    background-color: rgb(255, 255, 255);
-    overflow: scroll;
+    overflow: hidden;
     background-position: center;
-    background-repeat: none;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 #body-home h3, #body-home h4, #box-list-home h4 {
@@ -22,10 +22,28 @@
     font-size: 30px;
 }
 
+.welcome-text {
+    font-size: 5rem;
+    padding-bottom: 4rem;
+    color:rgb(27, 30, 30);
+}
 .game-title {
     font-style: italic;
+    color:rgb(23, 159, 183);
 }
 
+.title-subheader {
+    font-style: italic;
+    color: rgb(78, 134, 162);
+}
+
+.begin-text {
+    color: rgb(131, 131, 131);
+}
+
+.box-list-ctn {
+    padding-bottom: 3rem;
+}
 @media (max-width: 1200px) {
     .box-list-ctn {
         display: flex;
@@ -33,13 +51,23 @@
         gap: 3rem;
         object-fit: cover;
         padding: 20px;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 3rem;
     }
 
-    .office-cover-ctn div{
-        position: absolute;
-        top: 55%;
-        left: 5%;
+    .office-cover-img {
+        position: relative;
         width: 100%;
+        left: 0px;
+    }
+
+    .cover-caption-office {
+        position: absolute;
+        left: 6%;
+        top: 30%;
+    }
+    .office-cover-ctn div{
         font-size: 5rem;
         text-transform: uppercase;
         color: white;
@@ -48,11 +76,19 @@
         text-shadow: 4px 12px 8px rgb(78, 78, 78);
     }
 
-    .top-gun-cover-ctn div {
-        position: absolute;
-        top: 55%;
-        left: 15%;
+    .tg-cover-img {
+        position: relative;
         width: 100%;
+        left: 0px;
+    }
+
+    .cover-caption-tg {
+        position: absolute;
+        left: 15%;
+        top: 30%;
+    }
+
+    .top-gun-cover-ctn div {
         font-size: 5rem;
         text-transform: uppercase;
         color: white;
@@ -71,7 +107,6 @@
         gap: 2rem;
         object-fit: cover;
         width: 100vw;
-        padding-top: 2rem;
     }
 
     .top-gun-cover-ctn div {

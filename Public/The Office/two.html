@@ -63,7 +63,7 @@
       <div class="body-bg">
       <div class="container question-ctn">
       <h4 class="question-title">Question 2</h4>
-      <h5 class="py-4">Insert question text here?</h5>
+      <h5 class="py-4" id="q1">Where is she?</h5>
       <form class="row g-3" name="officeForm" onsubmit="validate(); return false">
           <div class="d-grid gap-3 mx-auto">
             <label for="officeTwo" class="form-label"></label>
@@ -71,6 +71,41 @@
               <input type="text" class="form-control" id="officeTwo" name="officeTwo" required> 
             </div>
             
+            <div id="checkbox-group" hidden>
+            <h5 class="py-4" id="q2">What is she climbing on?</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="checkboxTable">
+              <label class="form-check-label" for="flexCheckDefault">
+                Table
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="checkboxCouch">
+              <label class="form-check-label" for="flexCheckChecked">
+                Couch
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="checkboxCountertop">
+              <label class="form-check-label" for="flexCheckChecked">
+                Countertop
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="checkboxChair">
+              <label class="form-check-label" for="flexCheckChecked">
+                Chair
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="checkboxStairs">
+              <label class="form-check-label" for="flexCheckChecked">
+                Stairs
+              </label>
+            </div>
+          </div>
+
+
         <!-- Submit and Next puzzle buttons -->
         <button class="btn btn-primary btn-submit" id="submit-btn" type="submit" aria-hidden="false">Submit Guess</button>
           
@@ -123,7 +158,6 @@
                   <a href="./three.html">
                     <button type="button" class="btn btn-primary">Next question</button>
                   </a>
-                  
                 </div>
               </div>
             </div>
@@ -148,16 +182,47 @@
       // Variable declaration for validate()
       var officeTwo = document.officeForm.officeTwo;
 
+      var checkboxTable = document.officeForm.checkboxTable;
+      var checkboxCouch = document.officeForm.checkboxCouch;
+      var checkboxCountertop = document.officeForm.checkboxCountertop;
+      var checkboxChair = document.officeForm.checkboxChair;
+      var checkboxStairs = document.officeForm.checkboxStairs;
+
       // Validates that user input matches set value
       function validate(){
-          if(officeTwo.value == "this" || officeTwo.value == "This"){
+          if(officeTwo.value == "kitchen" || officeTwo.value == "Kitchen"){
               officeTwo.classList.remove("is-invalid");
               officeTwo.classList.add("is-valid");
+              officeTwo.disabled = true;
+              document.getElementById("checkbox-group").hidden = false;
+              document.getElementById("q1").hidden = true;
+              document.getElementById("q2").hidden = false;
+            }
+            else if(checkboxTable.checked){
+              document.getElementById("checkboxTable").disabled = true;
+              checkboxTable.classList.remove("is-valid");
+              checkboxTable.classList.add("is-invalid");
+            }
+            else if(checkboxCouch.checked){
+              document.getElementById("checkboxCouch").disabled = true;
+              checkboxCouch.classList.remove("is-valid");
+              checkboxCouch.classList.add("is-invalid");
+            }
+            else if(checkboxCountertop.checked){
+              document.getElementById("checkboxCountertop").disabled = true;
+              checkboxCountertop.classList.remove("is-valid");
+              checkboxCountertop.classList.add("is-invalid");
+            }
+            else if(checkboxStairs.checked){
+              document.getElementById("checkboxStairs").disabled = true;
+              checkboxStairs.classList.remove("is-valid");
+              checkboxStairs.classList.add("is-invalid");
+            }
+            else if(checkboxChair.checked){
               document.getElementById("next-btn").hidden = false;
               document.getElementById("next-btn").onclick = function(){
                   location.href = "./three.html"
               };
-
               document.getElementById("skip-btn").hidden = true;
               document.getElementById("submit-btn").hidden = true;
               document.getElementById("accordionExample").hidden = true;

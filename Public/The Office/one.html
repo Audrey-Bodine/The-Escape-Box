@@ -67,7 +67,7 @@
       <div class="body-bg">
         <div class="container question-ctn">
         <h4 class="question-title">Question 1</h4>
-        <h5 class="py-4">Insert question text here?</h5>
+        <h5 class="py-4">Where does he hide?</h5>
         <form class="row g-3" name="officeForm" onsubmit="validate(); return false">
             <div class="d-grid gap-3 mx-auto">
               <label for="officeOne" class="form-label"></label>
@@ -88,7 +88,7 @@
                 </button>
               </h2>
               <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                <div class="accordion-body">Every letter counts when answering these trivia questions!.</div>
               </div>
             </div>
           </div>
@@ -119,7 +119,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    Insert answer here
+                    After answering the questions, you use the key to determine which letter from each answer is relevant. For instance, the second question would have the answer 'The Injury,'
+                    and you would count three letters into that word, which gives you the letter E. Using this process, the final answer is: Bedroom
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-target="#skipModalToggle" data-bs-toggle="modal">Back</button>
@@ -153,7 +154,7 @@
 
         // Validates that user input matches set value
         function validate(){
-            if(officeOne.value == "this" || officeOne.value == "This"){
+            if(officeOne.value == "bedroom" || officeOne.value == "Bedroom"){
                 officeOne.classList.remove("is-invalid");
                 officeOne.classList.add("is-valid");
                 document.getElementById("next-btn").hidden = false;
