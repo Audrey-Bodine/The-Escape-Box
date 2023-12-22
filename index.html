@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Escape Box</title>
+    <title>The Escape Envelope</title>
     
     <!-- Bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -26,13 +26,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+
+    <!-- Shadows Into Light 2, Regular 400 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     <!-- Navbar section -->
     <section id="navigation-bar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="./Images/Escape Logo.svg" width="224" alt="the escape box logo"></a>
+              <a class="navbar-brand" href="#"><img src="./Images/Escape Logo.svg" width="224" alt="The Escape Envelope logo"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -82,39 +89,51 @@
     <!-- Body section -->
     <section id="body-home">
         <div class="container">
-            <h3 class="title-subheader">The game where you solve puzzles using knowledge of your favorite shows</h3>
-            <br/>
-            <h4 class="pt-3 my-5 begin-text">To begin, please select your edition of the game:</h3>
+            <h3 class="title-subheader">The game where you solve puzzles using knowledge of your favorite shows and films</h3>
         </div>
     </section>
 
 
+    <section id="envelope-bg">
+      <img src="./Images/Escape-Envelope-Bg.svg" width="900" class="img-fluid py-5 mt-5">
+      <div class="container envelope-bg-overlay">
+        <h4 class="pt-3 my-5 begin-text">To begin, please select your edition of the game</h3>
+      </div>
+
+      
+    </section>
 
 
     <!-- Box list section -->
     <section id="box-list-home">
-        <div class="container box-list-ctn d-flex">
-            <div class="office-box">
-                <div class="office-cover-ctn">
-                    <a href="./Public/The Office/one.html">
-                        <img src="./Images/The Office Cover.png" class="img-fluid office-cover-img" href="./Public/The Office/one.html" alt="Stack of paper">
-                        <div class="cover-caption-office">The Office</div>
-                    </a>
-                </div>
+        <div class="container card-ctn">
+          <div class="row row-cols-1 row-cols-md-2 g-4 text-center">
+            <div class="col">
+              <div class="card office-card">
+                <a href="./Public/The Office/one.html">
+                  <img src="./Images/The Office Cover.png" class="card-img-top img-fluid" alt="stack of paper">
+                  <div class="card-body card-img-overlay d-flex align-items-center justify-content-center">
+                    <h5 class="card-title">The office</h5>
+                    <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                  </div>
+                </a>
+              </div>
             </div>
 
-            <div class="top-gun-box">
-                <div class="top-gun-cover-ctn">
-                    <a href="./Public/Top Gun/one.html">
-                        <img src="./Images/Top Gun Cover.png" class="img-fluid tg-cover-img" alt="Fighter jet flying above clouds">
-                        <div class="cover-caption-tg">Top Gun</div>
-                    </a>
-                </div>   
+            <div class="col">
+              <div class="card tg-card">
+                <a href="./Public/Top Gun/one.html" class="">
+                  <img src="./Images/Top Gun Cover.png" class="card-img-top img-fluid" alt="fighter jet flying over clouds">
+                  <div class="card-body card-img-overlay d-flex align-items-center justify-content-center">
+                    <h5 class="card-title">Top Gun</h5>
+                    <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                  </div>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
     </section>
-
-
   
 
     <!-- Bootstrap link -->

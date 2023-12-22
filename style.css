@@ -9,139 +9,88 @@ body {
     position: relative;
 }
 
-#body-home h3, #body-home h4, #box-list-home h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+#body-home h3, #box-list-home h4 {
+    font-family: 'Shadows Into Light Two', cursive;
     text-align: center;
+    letter-spacing: .1rem;
 }
 
-#header-home {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+.envelope-bg-overlay h4 {
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size: 3rem;
     text-align: center;
-    font-size: 30px;
-}
-
-.welcome-text {
-    font-size: 5rem;
-    padding-bottom: 4rem;
-    color:rgb(27, 30, 30);
-}
-.game-title {
-    font-style: italic;
-    color:rgb(23, 159, 183);
 }
 
 .title-subheader {
     font-style: italic;
-    color: rgb(78, 134, 162);
+    color: rgb(61, 105, 126);
 }
+
+/* BOX LIST SECTION */
+@media (min-width: 300px) and (max-width: 1200px) {
+    .envelope-bg-overlay {
+        position: absolute;
+        top: 25%;
+        padding-left: 6rem;
+        padding-right: 5rem;
+    }
+
+    #envelope-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: -430px;
+        width: 100%;
+        position: relative;
+    }
+}
+
+@media (min-width: 1201px) {
+    .envelope-bg-overlay {
+        position: absolute;
+        top: 25%;
+        padding-left: 20rem;
+        padding-right: 20rem;
+    }
+
+    #envelope-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: -720px;
+        width: 100%;
+        position: relative;
+    }
+}
+
+
 
 .begin-text {
     color: rgb(131, 131, 131);
 }
 
-.box-list-ctn {
+.card-ctn {
     padding-bottom: 3rem;
 }
-@media (max-width: 1200px) {
-    .box-list-ctn {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        object-fit: cover;
-        padding: 20px;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 3rem;
-    }
 
-    .office-cover-img {
-        position: relative;
-        width: 100%;
-        left: 0px;
-    }
-
-    .cover-caption-office {
-        position: absolute;
-        left: 6%;
-        top: 30%;
-    }
-    .office-cover-ctn div{
-        font-size: 5rem;
-        text-transform: uppercase;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        text-shadow: 4px 12px 8px rgb(78, 78, 78);
-    }
-
-    .tg-cover-img {
-        position: relative;
-        width: 100%;
-        left: 0px;
-    }
-
-    .cover-caption-tg {
-        position: absolute;
-        left: 15%;
-        top: 30%;
-    }
-
-    .top-gun-cover-ctn div {
-        font-size: 5rem;
-        text-transform: uppercase;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        text-shadow: 4px 16px 8px rgb(31, 31, 31);
-    }
-
-    
-}
-
-@media (min-width: 1201px) {
-    .box-list-ctn {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        object-fit: cover;
-        width: 100vw;
-    }
-
-    .top-gun-cover-ctn div {
-        position: absolute;
-        top: 62%;
-        left: 22%;
-        width: 100%;
-        font-size: 5rem;
-        text-transform: uppercase;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        text-shadow: 4px 16px 8px rgb(31, 31, 31);
-    }
-
-    .office-cover-ctn div {
-        position: absolute;
-        top: 62%;
-        left: 11%;
-        width: 100%;
-        font-size: 5rem;
-        text-transform: uppercase;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        text-shadow: 4px 12px 8px rgb(78, 78, 78);
-    }
-}
-
-.top-gun-cover-ctn, .office-cover-ctn {
-    position: relative;
+.office-card img, .tg-card img {
+    object-fit: cover;
     width: 100%;
+    height: 40vh;
 }
 
+.card-title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    text-shadow: 4px 12px 8px rgb(78, 78, 78);
+}
 
+.card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.502);
+}
 
 
 
