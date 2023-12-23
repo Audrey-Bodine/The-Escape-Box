@@ -63,7 +63,7 @@
       <div class="body-bg">
       <div class="container question-ctn">
       <h4 class="question-title">Question 3</h4>
-      <h5 class="py-4">Insert question text here?</h5>
+      <h5 class="py-4">From which book series did he choose?</h5>
       <form class="row g-3" name="officeForm" onsubmit="validate(); return false">
           <div class="d-grid gap-3 mx-auto">
             <label for="officeThree" class="form-label"></label>
@@ -95,7 +95,7 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="skipModalToggleLabel">Skip</h1>
+                  <h1 class="modal-title fs-5" id="skipModalToggleLabel">Make Picture Go Forward</h1>
                   <button type="button" class="btn-close btn-submit" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -150,7 +150,7 @@
 
       // Validates that user input matches set value
       function validate(){
-          if(officeThree.value == "this" || officeThree.value == "This"){
+          if(officeThree.value == "Franklin the Turtle" || officeThree.value == "Franklin The Turtle" || officeThree.value == "Franklin the turtle" || officeThree.value == "franklin the turtle"){
               officeThree.classList.remove("is-invalid");
               officeThree.classList.add("is-valid");
               document.getElementById("next-btn").hidden = false;

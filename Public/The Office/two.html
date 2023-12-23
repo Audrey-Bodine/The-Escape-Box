@@ -63,37 +63,12 @@
       <div class="body-bg">
       <div class="container question-ctn">
       <h4 class="question-title">Question 2</h4>
-      <h5 class="py-4" id="q1">Where is she?</h5>
+      <h5 class="py-4" id="q1">What is she climbing on?</h5>
       <form class="row g-3" name="officeForm" onsubmit="validate(); return false">
           <div class="d-grid gap-3 mx-auto">
             <label for="officeTwo" class="form-label"></label>
             <div class="input-group">
-              <input type="text" class="form-control" id="officeTwo" name="officeTwo" required> 
-            
-              <label for="topGunAnswer" class="form-label tg-form-label"></label>
-              <div class="input-group tg-radio-input-group">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunRadio1">
-                        <label class="form-check-label" for="topGunRadio1">10:00 AM</label>
-                      </li>
-                    <li class="list-group-item">
-                      <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunRadio2">
-                      <label class="form-check-label" for="topGunRadio2">1:00 PM</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunAnswer" required>
-                        <label class="form-check-label" for="topGunAnswer">5:00 PM</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="topGunRadio3">
-                        <label class="form-check-label" for="topGunRadio3">7:15 PM</label>
-                      </li>
-      
-                  </ul>
-              </div>
-            
-            
+              <input type="text" class="form-control" id="officeTwo" name="officeTwo" placeholder="Enter a two-word answer" required>
             </div>
             
 
@@ -121,7 +96,7 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="skipModalToggleLabel">Skip</h1>
+                  <h1 class="modal-title fs-5" id="skipModalToggleLabel">Make Picture Go Forward</h1>
                   <button type="button" class="btn-close btn-submit" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -176,7 +151,23 @@
 
       // Validates that user input matches set value
       function validate(){
-        
+          if(officeTwo.value == "kitchen chair" || officeTwo.value == "Kitchen Chair" || officeTwo.value == "Kitchen chair"){
+              officeTwo.classList.remove("is-invalid");
+              officeTwo.classList.add("is-valid");
+              document.getElementById("next-btn").hidden = false;
+              document.getElementById("next-btn").onclick = function(){
+                  location.href = "./three.html"
+              };
+
+              document.getElementById("skip-btn").hidden = true;
+              document.getElementById("submit-btn").hidden = true;
+              document.getElementById("accordionExample").hidden = true;
+          }
+          else {
+              officeTwo.classList.remove("is-valid");
+              officeTwo.classList.add("is-invalid");
+
+          }
       }
   </script>
 </body>

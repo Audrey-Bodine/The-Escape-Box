@@ -67,12 +67,16 @@
       <div class="body-bg">
       <div class="container question-ctn">
       <h4 class="question-title">Question 3</h4>
-      <h5 class="py-4">Insert question text here?</h5>
+      <h5 class="py-4">What is the value sequence of these dominoes?</h5>
       <form class="row g-3" name="topGunForm" onsubmit="validate(); return false">
           <div class="d-grid gap-3 mx-auto">
             <label for="topGunThree" class="form-label"></label>
             <div class="inputs">
-              <input type="text" class="form-control" id="topGunThree" name="topGunThree" required>            
+              <input type="text" class="form-control" id="topGunThree1" name="topGunThree1" placeholder="Enter a single digit" required>
+              <br />
+              <input type="text" class="form-control" id="topGunThree2" name="topGunThree2" placeholder="Enter a double digit">
+              <br />
+              <input type="text" class="form-control" id="topGunThree3" name="topGunThree3" placeholder="Enter a double digit">           
             </div>
 
             
@@ -101,7 +105,7 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="skipModalToggleLabel">Skip</h1>
+                  <h1 class="modal-title fs-5" id="skipModalToggleLabel">Make Picture Go Forward</h1>
                   <button type="button" class="btn-close btn-submit" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -152,28 +156,60 @@
 
   <script>
       // Variable declaration for validate()
-      var topGunThree = document.topGunForm.topGunThree;
+      var topGunThree1 = document.topGunForm.topGunThree1;
+      var topGunThree2 = document.topGunForm.topGunThree2;
+      var topGunThree3 = document.topGunForm.topGunThree3;
 
       // Validates that user input matches set value
       function validate(){
-          if(topGunThree.value == "this" || topGunThree.value == "This"){
-              topGunThree.classList.remove("is-invalid");
-              topGunThree.classList.add("is-valid");
-              document.getElementById("next-btn").hidden = false;
+          if(topGunThree1.value != "5"){
+            topGunThree1.classList.remove("is-valid");
+            topGunThree1.classList.add("is-invalid");
+          }
+
+          if(topGunThree2.value != "16"){
+            topGunThree2.classList.remove("is-valid");
+            topGunThree2.classList.add("is-invalid");
+          }
+
+          if(topGunThree3.value != "86"){
+            topGunThree3.classList.remove("is-valid");
+            topGunThree3.classList.add("is-invalid");
+          }
+          if(topGunThree1.value == "5"){
+            topGunThree1.classList.remove("is-invalid");
+            topGunThree1.classList.add("is-valid");
+
+            topGunThree1.disabled = true;
+          }
+
+          if(topGunThree2.value == "16"){
+            topGunThree2.classList.remove("is-invalid");
+            topGunThree2.classList.add("is-valid");
+
+            topGunThree2.disabled = true;
+          }
+
+          if(topGunThree3.value == "86"){
+            topGunThree3.classList.remove("is-invalid");
+            topGunThree3.classList.add("is-valid");
+
+            topGunThree3.disabled = true;
+          }
+
+          if(topGunThree1.value == "5" && topGunThree2.value == "16" && topGunThree3.value == "86"){
+            document.getElementById("next-btn").hidden = false;
               document.getElementById("next-btn").onclick = function(){
-                  location.href = "./four.html"
+                location.href = "./four.html"
               };
 
               document.getElementById("skip-btn").hidden = true;
               document.getElementById("submit-btn").hidden = true;
               document.getElementById("accordionExample").hidden = true;
+            }
           }
-          else {
-              topGunThree.classList.remove("is-valid");
-              topGunThree.classList.add("is-invalid");
-
-          }
-      }
+        
+      
   </script>
 </body>
 </html>

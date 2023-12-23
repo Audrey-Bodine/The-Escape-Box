@@ -63,12 +63,25 @@
       <div class="body-bg">
       <div class="container question-ctn">
       <h4 class="question-title">Question 4</h4>
-      <h5 class="py-4">Insert question text here?</h5>
+      <h5 class="py-4">What are the crochet hook sizes that the pattern requires?</h5>
       <form class="row g-3" name="officeForm" onsubmit="validate(); return false">
           <div class="d-grid gap-3 mx-auto">
             <label for="officeFour" class="form-label"></label>
-            <div class="input-group">
-              <input type="text" class="form-control" id="officeFour" name="officeFour" required>
+            <div class="input-group office-radio-input-group">
+              <ul class="list-group">
+                  <li class="list-group-item">
+                      <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="officeRadio1">
+                      <label class="form-check-label" for="officeRadio1">A and B</label>
+                    </li>
+                  <li class="list-group-item">
+                    <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="officeRadioAnswer" required>
+                    <label class="form-check-label" for="officeRadioAnswer">B and D</label>
+                  </li>
+                  <li class="list-group-item">
+                      <input class="form-check-input me-1" type="radio" name="radioButton" value="" id="officeRadio2">
+                      <label class="form-check-label" for="officeRadio2">C and D</label>
+                  </li>
+                </ul>
             </div>
             
         <!-- Submit and Next puzzle buttons -->
@@ -95,7 +108,7 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="skipModalToggleLabel">Skip</h1>
+                  <h1 class="modal-title fs-5" id="skipModalToggleLabel">Make Picture Go Forward</h1>
                   <button type="button" class="btn-close btn-submit" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -144,21 +157,17 @@
   <section id="escaped-modal">
           <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+              <div class="modal-content justify-content-center align-items-center">
                 <div class="modal-body">
                   <a href="./escaped.html">
-                    <button class="escape-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
-                    </svg></button>
+                    <button class="escape-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="90" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                      <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                    </svg>
+                  Start the show!
+                      <br />
+                  </button>
                   </a>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -173,12 +182,15 @@
       // Variable declaration for validate()
       var officeFour = document.officeForm.officeFour;
       let escapedModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+      var officeRadio1 = document.officeForm.officeRadio1;
+      var officeRadio2 = document.officeForm.officeRadio2;
+      var officeRadioAnswer = document.officeForm.officeRadioAnswer;
 
       // Validates that user input matches set value
       function validate(){
-          if(officeFour.value == "this" || officeFour.value == "This"){
-              officeFour.classList.remove("is-invalid");
-              officeFour.classList.add("is-valid");
+          if(officeRadioAnswer.checked){
+              officeRadioAnswer.classList.remove("is-invalid");
+              officeRadioAnswer.classList.add("is-valid");
               document.getElementById("next-btn").onclick = function(){
                   location.href = "./escaped.html"
               };
@@ -188,10 +200,22 @@
 
               document.getElementById("exampleModal").hidden = false;
               escapedModal.show();
+
+              officeRadio1.disabled = true;
+              officeRadio2.disabled = true;
+
+          }
+          else if(officeRadio1.checked){
+            document.getElementById("officeRadio1").disabled = true;
+            document.getElementById("officeRadio1").checked = false;
+            officeRadio1.classList.remove("is-valid");
+            officeRadio1.classList.add("is-invalid");
           }
           else {
-              officeFour.classList.remove("is-valid");
-              officeFour.classList.add("is-invalid");
+            document.getElementById("officeRadio2").disabled = true;
+            document.getElementById("officeRadio2").checked = false;
+            officeRadio2.classList.remove("is-valid");
+            officeRadio2.classList.add("is-invalid");
 
           }
       }
