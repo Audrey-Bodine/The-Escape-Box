@@ -218,6 +218,10 @@ body {
     background-image: url('./Images/piano-keys.png');
 }
 
+.tg-q4-answers > ul > li {
+    list-style: none;
+}
+
 
 #answer-form-tg .question-title {
     font-family: 'Tomorrow', sans-serif;
